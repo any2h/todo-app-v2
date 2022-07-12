@@ -11,9 +11,22 @@ function Todo({id, name, completed, toggleTaskCompleted, editTask, deleteTask}) 
         inputRef = useRef();
 
     useEffect(() => {
+        // function turnEditingOff(e) {
+        //     if (e.target !== inputRef.current) {
+        //         setEditing(false)
+        //     }
+        // }
+
+        // window.addEventListener('click', turnEditingOff)
+
         if (!wasEditing && isEditing) {
             inputRef.current.focus()
         }
+
+        // return () => {
+        //     window.removeEventListener('click', turnEditingOff)
+        // }
+
     }, [wasEditing, isEditing])
 
     const handleChange = (e) => {
@@ -45,12 +58,7 @@ function Todo({id, name, completed, toggleTaskCompleted, editTask, deleteTask}) 
                         checked={completed}
                         onClick={toggleTaskCompleted}
                     />
-                    {/* <input
-                        type="checkbox"
-                        checked={completed}
-                        onChange={toggleTaskCompleted}
-                    />
-                    <label onClick={toggleTaskCompleted}>{name}</label> */}
+
                     <div>
                         <button onClick={() => setEditing(true)}><VscEdit /></button>
                         <button onClick={deleteTask}><VscChromeClose /></button>

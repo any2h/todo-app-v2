@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const StyledFooter = styled.footer`
     display: flex;
-    /* justify-content: space-between; */
     justify-content: space-around;
     align-items: center;
 
@@ -19,8 +18,7 @@ export const StyledFooter = styled.footer`
         display: flex;
         gap: 1rem;
         justify-content: center;
-        padding-right: 1rem;
-        /* padding-left: -1.75rem; */
+        padding-right: .5rem;
     }
 
     > button {
@@ -38,6 +36,11 @@ export const StyledFooter = styled.footer`
 
     ${({theme}) => theme.breakpoints.small} {
         position: relative;
+        justify-content: space-between;
+
+        > * {
+            flex: initial;
+        }
 
         > div {
             position: absolute;
