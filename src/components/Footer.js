@@ -1,9 +1,13 @@
 import { StyledFooter } from "./styles/StyledFooter"
 
-function Footer({ span, tasksCompleted, clearCompleted, children}) {
+function Footer({ todos, clearCompleted, children}) {
+    const tasksCompleted = todos.filter(todo => todo.completed).length,
+        activeTasksLeft = todos.filter(todo => !todo.completed).length,
+        spanElement = <span>{activeTasksLeft} {activeTasksLeft === 1 ? 'task' : 'tasks'} left</span>;
+
     return (
         <StyledFooter>
-            {span}
+            {spanElement}
             <div>
                 {children}
             </div> 

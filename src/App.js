@@ -19,9 +19,6 @@ const filterNames = {
 export default function App() {
     const [todos, setTodos] = useState(() => JSON.parse(localStorage.getItem('todos')) || []),
         [filter, setFilter] = useState('All'),
-        tasksCompleted = todos.filter(todo => todo.completed).length,
-        activeTasksLeft = todos.filter(todo => !todo.completed).length,
-        spanElement = <span>{activeTasksLeft} {activeTasksLeft === 1 ? 'task' : 'tasks'} left</span>,
         allCompleted = todos.every(todo => todo.completed);
 
     useEffect(() => {
@@ -95,8 +92,7 @@ export default function App() {
 
                 {todos.length !== 0 &&
                     <Footer
-                        span={spanElement}
-                        tasksCompleted={tasksCompleted}
+                        todos={todos}
                         clearCompleted={clearCompleted}
                         children={Object.keys(filterNames).map(name => 
                             <FilterButton
