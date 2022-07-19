@@ -74,20 +74,24 @@ export default function App() {
                 />
 
                 <TodoList
+                    todos={todos}
                     todosLength={todos.length}
                     allCompleted={allCompleted}
                     toggleAllCompleted={toggleAllCompleted}
-                    children={todos.filter(filterNames[filter]).map(todo => 
-                        <Todo 
-                            key={todo.id}
-                            id={todo.id}
-                            name={todo.name}
-                            completed={todo.completed}
-                            toggleTaskCompleted={() => toggleTaskCompleted(todo.id)}
-                            editTask={editTask}
-                            deleteTask={() => deleteTask(todo.id)}
-                        />
-                    )}
+                    toggleTaskCompleted={toggleTaskCompleted}
+                    editTask={editTask}
+                    deleteTask={deleteTask}
+                    // children={todos.filter(filterNames[filter]).map(todo => 
+                    //     <Todo 
+                    //         key={todo.id}
+                    //         id={todo.id}
+                    //         name={todo.name}
+                    //         completed={todo.completed}
+                    //         toggleTaskCompleted={() => toggleTaskCompleted(todo.id)}
+                    //         editTask={editTask}
+                    //         deleteTask={() => deleteTask(todo.id)}
+                    //     />
+                    // )}
                 />
 
                 {todos.length !== 0 &&
