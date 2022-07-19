@@ -6,7 +6,7 @@ import { DarkTheme } from "./components/styles/Themes"
 import { Wrapper } from "./components/styles/Wrapper"
 import Header from "./components/Header"
 import TodoList from "./components/TodoList"
-import Todo from "./components/Todo"
+// import Todo from "./components/Todo"
 import Footer from "./components/Footer"
 import FilterButton from "./components/FilterButton"
 
