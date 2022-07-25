@@ -4,7 +4,7 @@ import { StyledTodo } from './styles/StyledTodo'
 import Checkbox from "./Checkbox";
 import usePrevious from '../hooks/usePrevious'
 
-function Todo({id, name, completed, toggleTaskCompleted, editTask, deleteTask}) {
+function Todo({ id, name, completed, toggleTaskCompleted, editTask, deleteTask }) {
     const [newName, setNewName] = useState(name),
         [isEditing, setEditing] = useState(false),
         wasEditing = usePrevious(isEditing),

@@ -9,5 +9,4 @@ export const Wrapper = styled.div`
     flex-direction: column;
     background-color: ${({theme}) => theme.wrapper};
     border-radius: 20px;
-
 `

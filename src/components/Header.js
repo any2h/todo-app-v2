@@ -1,8 +1,10 @@
 import { useState } from "react"
+import { useGlobalContext } from "../Context"
 import { StyledHeader } from "./styles/StyledHeader"
 
-function Header({ addTask }) {
+function Header() {
     const [taskName, setTaskName] = useState('')
+    const { addTask } = useGlobalContext()
 
     const handleChange = (e) => {
         setTaskName(e.target.value)
@@ -21,6 +23,7 @@ function Header({ addTask }) {
                 <input
                     type='text'
                     value={taskName}
+                    placeholder="what needs to be done?"
                     onChange={handleChange}
                 >
 

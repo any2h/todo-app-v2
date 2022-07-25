@@ -7,10 +7,6 @@ export const StyledHeader = styled.header`
         margin-block: 1rem;
     }
 
-    form {
-        /* padding-inline: 1rem; */
-    }
-
     input {
         width: 100%;
         border-radius: 15px;
@@ -19,5 +15,10 @@ export const StyledHeader = styled.header`
         text-indent: 3.125rem;
         color: ${({theme}) => theme.taskColor};
         margin-bottom: 1rem;
+        
+        &::placeholder {
+            font-style: italic;
+            opacity: .4;
+        }
     }
 `
