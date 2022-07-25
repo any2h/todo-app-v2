@@ -6,7 +6,7 @@ import { DarkTheme } from "./components/styles/Themes"
 import { Wrapper } from "./components/styles/Wrapper"
 import Header from "./components/Header"
 import TodoList from "./components/TodoList"
-// import Todo from "./components/Todo"
+import Todo from "./components/Todo"
 import Footer from "./components/Footer"
 import FilterButton from "./components/FilterButton"
 
@@ -19,6 +19,9 @@ const filterNames = {
 export default function App() {
     const [todos, setTodos] = useState(() => JSON.parse(localStorage.getItem('todos')) || []),
         [filter, setFilter] = useState('All'),
+        tasksCompleted = todos.filter(todo => todo.completed).length,
+        activeTasksLeft = todos.filter(todo => !todo.completed).length,
+        spanElement = <span>{activeTasksLeft} {activeTasksLeft === 1 ? 'task' : 'tasks'} left</span>,
         allCompleted = todos.every(todo => todo.completed);
 
     useEffect(() => {
@@ -74,29 +77,26 @@ export default function App() {
                 />
 
                 <TodoList
-                    todos={todos}
                     todosLength={todos.length}
                     allCompleted={allCompleted}
                     toggleAllCompleted={toggleAllCompleted}
-                    toggleTaskCompleted={toggleTaskCompleted}
-                    editTask={editTask}
-                    deleteTask={deleteTask}
-                    // children={todos.filter(filterNames[filter]).map(todo => 
-                    //     <Todo 
-                    //         key={todo.id}
-                    //         id={todo.id}
-                    //         name={todo.name}
-                    //         completed={todo.completed}
-                    //         toggleTaskCompleted={() => toggleTaskCompleted(todo.id)}
-                    //         editTask={editTask}
-                    //         deleteTask={() => deleteTask(todo.id)}
-                    //     />
-                    // )}
+                    children={todos.filter(filterNames[filter]).map(todo => 
+                        <Todo 
+                            key={todo.id}
+                            id={todo.id}
+                            name={todo.name}
+                            completed={todo.completed}
+                            toggleTaskCompleted={() => toggleTaskCompleted(todo.id)}
+                            editTask={editTask}
+                            deleteTask={() => deleteTask(todo.id)}
+                        />
+                    )}
                 />
 
                 {todos.length !== 0 &&
                     <Footer
-                        todos={todos}
+                        span={spanElement}
+                        tasksCompleted={tasksCompleted}
                         clearCompleted={clearCompleted}
                         children={Object.keys(filterNames).map(name => 
                             <FilterButton

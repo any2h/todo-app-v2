@@ -1,14 +1,9 @@
-import { memo } from "react";
 import { StyledFooter } from "./styles/StyledFooter"
 
-const Footer = memo(({ todos, clearCompleted, children}) => {
-    const tasksCompleted = todos.filter(todo => todo.completed).length,
-        activeTasksLeft = todos.filter(todo => !todo.completed).length,
-        spanElement = <span>{activeTasksLeft} {activeTasksLeft === 1 ? 'task' : 'tasks'} left</span>;
-
+function Footer({ span, tasksCompleted, clearCompleted, children}) {
     return (
         <StyledFooter>
-            {spanElement}
+            {span}
             <div>
                 {children}
             </div> 
@@ -20,6 +15,6 @@ const Footer = memo(({ todos, clearCompleted, children}) => {
             </button>
         </StyledFooter>
     )
-})
+}
 
 export default Footer
