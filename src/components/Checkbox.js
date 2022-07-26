@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const Input = styled.input`
-    appearance: none;
+    -webkit-appearance: none;
     position: absolute;
     z-index: -1;
     opacity: 0;
