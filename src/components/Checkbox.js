@@ -23,6 +23,7 @@ const Input = styled.input`
 `
 
 const Label = styled.label`
+    -webkit-appearance: none;
     display: inline-flex;
     align-items: center;
     gap: 1rem;
