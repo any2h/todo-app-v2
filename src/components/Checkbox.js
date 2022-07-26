@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 const Input = styled.input`
+    appearance: none;
     position: absolute;
     z-index: -1;
     opacity: 0;
@@ -40,7 +41,7 @@ const Label = styled.label`
     }
 `
 
-export default function Checkbox({checked, onClick, name}) {
+export default function Checkbox({ checked, onClick, name }) {
 
     return (
         <>

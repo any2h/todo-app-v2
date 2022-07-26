@@ -10,22 +10,21 @@ function Todo({ id, name, completed, toggleTaskCompleted, editTask, deleteTask }
         wasEditing = usePrevious(isEditing),
         inputRef = useRef();
 
+    function turnEditingOff(e) {
+        if (e.target !== inputRef.current) {
+            setEditing(false)
+        }
+    }
+
     useEffect(() => {
-        // function turnEditingOff(e) {
-        //     if (e.target !== inputRef.current) {
-        //         setEditing(false)
-        //     }
-        // }
-
-        // window.addEventListener('click', turnEditingOff)
-
         if (!wasEditing && isEditing) {
             inputRef.current.focus()
+            setTimeout(() => window.addEventListener('click', turnEditingOff), 100)
         }
 
-        // return () => {
-        //     window.removeEventListener('click', turnEditingOff)
-        // }
+        return () => {
+            window.removeEventListener('click', turnEditingOff)
+        }
 
     }, [wasEditing, isEditing])
 

@@ -10,7 +10,11 @@ export const StyledTodo = styled.li`
     padding-inline: 1rem;
 
     form > input {
-        margin-left: 2rem;
+        margin-left: 2.125rem;
+        border: 0;
+        outline: 0;
+        background-color: ${({theme}) => theme.taskColor};
+        color: #fff;
     }
 
     > div {
@@ -42,8 +46,4 @@ export const StyledTodo = styled.li`
             opacity: 1;
         }
     }
-
-    /* > div {
-        margin-left: auto;
-    } */
 `

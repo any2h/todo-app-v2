@@ -5,6 +5,7 @@ export const StyledHeader = styled.header`
 
     h1 {
         margin-block: 1rem;
+        letter-spacing: .25rem;
     }
 
     input {

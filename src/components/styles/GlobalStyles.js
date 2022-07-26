@@ -42,14 +42,8 @@ export const GlobalStyles = createGlobalStyle`
         background-color: ${({theme}) => theme.body};
     }
 
-    /* A elements that don't have a class get default styles */
-    a:not([class]) {
-        text-decoration-skip-ink: auto;
-    }
-
     /* Make images easier to work with */
-    img,
-    picture {
+    img {
         max-width: 100%;
         display: block;
     }
@@ -61,8 +55,4 @@ export const GlobalStyles = createGlobalStyle`
         font: inherit;
         cursor: pointer;
     }
-
-    ${'' /* input:focus {
-        outline: 1px solid #DC7BFE;
-    } */}
 ` 

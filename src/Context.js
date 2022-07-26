@@ -1,7 +1,11 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import { nanoid } from "nanoid"
 
-const AppContext = createContext()
+const starter = [
+    {id: nanoid(), name: 'Тестовое задание', completed: true},
+    {id: nanoid(), name: 'Прекрасный код', completed: false},
+    {id: nanoid(), name: 'Покрытие тестами', completed: false},
+]
 
 const filterNames = {
     All: () => true,
@@ -9,8 +13,10 @@ const filterNames = {
     Completed: task => task.completed,
 }
 
+const AppContext = createContext()
+
 export const ContextProvider = ({children}) => {
-    const [todos, setTodos] = useState(() => JSON.parse(localStorage.getItem('todos')) || [])
+    const [todos, setTodos] = useState(() => JSON.parse(localStorage.getItem('todos')) || starter)
     const [filter, setFilter] = useState('All')
     const allCompleted = todos.every(todo => todo.completed)
 
